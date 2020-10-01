@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@font-face {
+  font-family: 'Microgramma';
+  src:url('./fonts/Microgramma D Extended Bold.otf');}
+
 .App {
   text-align: center;
 }
@@ -14,12 +19,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: grey;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -27,12 +30,25 @@
 .App-link {
   color: #61dafb;
 }
+.Brand-name {
+  font-family: 'Microgramma', sans-serif;
+  text-align: left;
+  color: #61dafb;
+  text-shadow: -4px 2px black;
+  text-decoration:none;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.one {
+  color: pink;
+}
+
+.two {
+  color: purple;
+}
+.three {
+  color: yellow;
+}
+.logo {
+  width: 10%;
+  height: auto;
 }
