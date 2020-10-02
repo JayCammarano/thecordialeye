@@ -15,6 +15,10 @@ module.exports = {
       lightblue: "#80E6FF",
     },
     extend: {},
+    fontFamily: {
+      'title': ["Microgramma"],
+      'subtitle': ["GillKayo"]
+    },
   },
   variants: {},
   plugins: [],

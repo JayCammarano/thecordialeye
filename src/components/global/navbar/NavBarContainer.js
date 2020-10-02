@@ -1,12 +1,18 @@
-import React from 'react'
-import Logo from './Logo'
+import React from "react";
+import Logo from "./Logo";
+import DropDownNav from "./DropDownNav";
 
 const NavBarContainer = () => {
   return (
     <div>
-      <Logo />
-    </div>
-  )
-}
+      <div className="float-left p-5">
+        <Logo />
+      </div>
 
-export default NavBarContainer
+        <DropDownNav />
+
+    </div>
+  );
+};
+
+export default NavBarContainer;

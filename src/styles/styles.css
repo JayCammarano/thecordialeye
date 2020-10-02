@@ -31,12 +31,11 @@
 .title {
   text-shadow: -4px 2px black;
   text-decoration: none;
+  font: "Microgramma";
 }
 
 .logo {
-  margin: 25px;
   width: 10%;
   height: auto;
   box-shadow: -7px 5px black;
 }
-
