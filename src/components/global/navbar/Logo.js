@@ -36,7 +36,6 @@ const Logo = () => {
     }, [selectedColor])
   const returnSelectedColor = () => {
     setselectedColor(colors[0]);
-    setSelectedLogo(logos[selectedColor])
   };
 
   return (

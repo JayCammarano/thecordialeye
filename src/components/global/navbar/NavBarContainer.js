@@ -8,9 +8,7 @@ const NavBarContainer = () => {
       <div className="float-left p-5">
         <Logo />
       </div>
-
-        <DropDownNav />
-
+      <DropDownNav />
     </div>
   );
 };
