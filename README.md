@@ -21,12 +21,12 @@ This is a complete redesign and rebuild of the website. It was created using Gat
 - An admin dashboard that allows things such as editing the mission statement and changing the images in a carousel
 
 **Next Sprint (11/30-12/13)**
-
-- Upcoming Events
-  - Google Calendar integration
-  - Event specific info pages
 - Home page
 - About page
   - Mission section
   - Team section
 - Contact Us page
+- Upcoming Events
+  - Google Calendar integration
+  - Event specific info pages
+
