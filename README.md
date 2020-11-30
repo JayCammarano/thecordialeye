@@ -1,4 +1,5 @@
 A website for The Cordial Eye Art Gallery and Community Space.
+[![Codeship Status for JayCammarano/thecordialeye](https://app.codeship.com/projects/a8077392-59ef-4c9f-9aa7-f3cde30b8a50/status?branch=master)](https://app.codeship.com/projects/420092)
 
 **About The Cordial Eye**
 
