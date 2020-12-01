@@ -8,6 +8,10 @@ const theme = {
       ...colors.teal,
       default: colors.teal[500],
     },
+    dark_pink: {
+      100: '#F9ACE6',
+      500: '#E56FC7',
+    },
     secondary: {
       50: '#f3f1e0',
       100: '#e0dcb3',
