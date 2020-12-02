@@ -2772,10 +2772,12 @@ type SitePluginPluginOptionsPostCssPluginsThemeColorsBlueFilterInput = {
 };
 
 type SitePluginPluginOptionsPostCssPluginsThemeColorsDark_pink = {
+  readonly _100: Maybe<Scalars['String']>;
   readonly _500: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsPostCssPluginsThemeColorsDark_pinkFilterInput = {
+  readonly _100: Maybe<StringQueryOperatorInput>;
   readonly _500: Maybe<StringQueryOperatorInput>;
 };
 

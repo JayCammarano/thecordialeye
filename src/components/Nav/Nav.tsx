@@ -17,11 +17,30 @@ export const Nav: React.FC = () => {
 
   return (
     <>
-      <nav className="bg-dark_pink-500 w-full py-4 border-b border-gray-100 shadow-md z--10 bg md:shadow-md md:bg-dark_pink-600 md:border-none">
-        <div className="container flex flex-wrap items-center justify-between px-4 mx-auto md:flex-row">
-          <Link to="/" className="relative flex items-center mr-6">
-            <span className="text-2xl">The Cordial Eye</span>
-          </Link>
+      <nav
+        id="header"
+        className="border-dark_pink-100 pb-4
+         w-full  border-b shadow-md bg md:shadow-md md:bg-dark_pink-100 md:border-none"
+      >
+        <div className="container text-black content-start flex flex-wrap items-center justify-between md:flex-row">
+          <div className="flex bg-dark_pink-500 w-5/12 p-2">
+            <div className="">
+              <picture>
+                <img
+                  className="logo pl-8"
+                  // eslint-disable-next-line global-require
+                  src={require('../../../public/logos/logo-lg-resize.png')}
+                  alt="Eye in triangle, logo"
+                />
+              </picture>
+            </div>
+            <div className="inline-block">
+              <Link to="/" className="m-0">
+                <span className="text-2xl text-black m-3">The Cordial Eye</span>
+              </Link>
+            </div>
+          </div>
+          <div className="arrow-right m-0" />
           <div className="block md:hidden">
             <button
               id="nav-toggle"
@@ -42,12 +61,12 @@ export const Nav: React.FC = () => {
 
           <div
             id="nav-content"
-            className={`flex-grow w-full pt-2 md:flex md:items-center md:w-auto md:block md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
+            className={`flex-grow h-8 w-1/2 md:w-auto md:block md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
               !isOpen && 'hidden'
             }`}
           >
-            <div className="flex-row">
-              <div className="flex flex-col items-start justify-end flex-1 -mx-1 md:items-center md:flex-row text-black">
+            <div className="flex-row pl-4">
+              <div className="flex flex-col text-white items-end justify-end flex-1 -mx-1 md:items-center md:flex-row">
                 <NavLink to="/about/">Home</NavLink>
                 <NavLink to="/about/">About</NavLink>
                 <NavLink to="#">Contact</NavLink>
@@ -58,7 +77,7 @@ export const Nav: React.FC = () => {
                   </span>
                 </NavLink>
               </div>
-              <div className="flex flex-col items-start justify-end flex-1 -mx-1 \ md:flex-row text-black">
+              <div className="flex flex-col items-end justify-end flex-1 -mx-1 mb-2 md:flex-row text-black">
                 <NavLink to="/about/">Gallery</NavLink>
                 <NavLink to="/about/">Programming</NavLink>
                 <NavLink to="#">Store</NavLink>

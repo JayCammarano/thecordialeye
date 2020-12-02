@@ -15682,6 +15682,16 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "_100",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "_500",
             "description": "",
             "type": {
@@ -19284,6 +19294,18 @@
         "name": "SitePluginPluginOptionsPostCssPluginsThemeColorsDark_pink",
         "description": null,
         "fields": [
+          {
+            "name": "_100",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "_500",
             "description": null,
