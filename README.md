@@ -16,18 +16,17 @@ This is a complete redesign and rebuild of the website. It was created using Gat
 
 **Planned Features**
 
-- Shopify integration for both merchandise sales and donations
-- A syncing calendar with Google Calendar API
-- Social media feeds for Instagram and Facebook events
-- An admin dashboard that allows things such as editing the mission statement and changing the images in a carousel
-
-**Next Sprint (11/30-12/13)**
-- Home page
-- About page
-  - Mission section
-  - Team section
-- Contact Us page
-- Upcoming Events
-  - Google Calendar integration
-  - Event specific info pages
-
+ - Shopify integration for both merchandise sales and donations
+ - A syncing calendar with Airtable
+ - Social media feeds for Instagram and Facebook events
+ - Complete Airtable integration to allow to change text and images
+ 
+ **Next Sprint (11/30-12/13)**
+ 
+  - Home page
+  - About page
+    - Mission section
+    - Team section
+  - Contact Us page
+  - Upcoming Events 
+ 
