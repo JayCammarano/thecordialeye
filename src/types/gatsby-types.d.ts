@@ -3448,12 +3448,12 @@ type SitePluginPluginOptionsPostCssPluginsThemeFilterInput = {
 
 type SitePluginPluginOptionsPostCssPluginsThemeFontFamily = {
   readonly sans: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly labeltape: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly impactlabel: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
 };
 
 type SitePluginPluginOptionsPostCssPluginsThemeFontFamilyFilterInput = {
   readonly sans: Maybe<StringQueryOperatorInput>;
-  readonly labeltape: Maybe<StringQueryOperatorInput>;
+  readonly impactlabel: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsPostCssPluginsVariants = {

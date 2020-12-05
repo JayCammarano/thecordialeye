@@ -3258,12 +3258,12 @@ input SitePluginPluginOptionsPostCssPluginsThemeFilterInput {
 
 type SitePluginPluginOptionsPostCssPluginsThemeFontFamily {
   sans: [String]
-  labeltape: [String]
+  impactlabel: [String]
 }
 
 input SitePluginPluginOptionsPostCssPluginsThemeFontFamilyFilterInput {
   sans: StringQueryOperatorInput
-  labeltape: StringQueryOperatorInput
+  impactlabel: StringQueryOperatorInput
 }
 
 type SitePluginPluginOptionsPostCssPluginsVariants {

@@ -14,7 +14,7 @@ console.log('Using environment config', { BUILD_CONTEXT });
 
 // BEGIN CONFIG HERE
 
-const URL = 'www.thecordialeye.com';
+const URL = 'https://gatsby-starter-minimal.netlify.app';
 const DEFAULT_DEV_URL = 'http://localhost:8000';
 
 const getBaseUrl = () => {

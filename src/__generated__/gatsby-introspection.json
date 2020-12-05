@@ -16303,7 +16303,7 @@
             "defaultValue": null
           },
           {
-            "name": "labeltape",
+            "name": "impactlabel",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
@@ -20075,7 +20075,7 @@
             "deprecationReason": null
           },
           {
-            "name": "labeltape",
+            "name": "impactlabel",
             "description": null,
             "args": [],
             "type": {
