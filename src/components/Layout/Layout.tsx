@@ -14,6 +14,7 @@ export const Layout: React.FC<ILayoutProps> = ({
   children,
 }) => (
   <>
+    <link rel="stylesheet" href="carousel.css" />
     <SEO pathName={location.pathname} title={title} />
     <Nav />
     <div className="flex-grow site-container">{children}</div>

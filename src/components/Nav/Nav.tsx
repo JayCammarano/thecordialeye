@@ -29,7 +29,7 @@ export const Nav: React.FC = () => {
                 <img
                   className="logo pl-8"
                   // eslint-disable-next-line global-require
-                  src={require('../../../public/logos/logo-lg-resize.png')}
+                  src={require('../../assets/images/logos/logo-lg-resize.png')}
                   alt="Eye in triangle, logo"
                 />
               </picture>

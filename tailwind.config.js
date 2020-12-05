@@ -57,6 +57,7 @@ const theme = {
       'Helvetica Neue',
       'sans-serif',
     ],
+    impactlabel: ['./src/assets/fonts/impact-label/Impact_Label.ttf'],
   },
   extend: {
     spacing: {

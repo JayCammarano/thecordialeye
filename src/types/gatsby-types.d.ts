@@ -3,6 +3,8 @@
 declare namespace GatsbyTypes {
 type Maybe<T> = T | undefined;
 type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 type Scalars = {
   ID: string;
@@ -23,6 +25,248 @@ type Scalars = {
 
 
 
+
+type Airtable = Node & {
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+  readonly table: Maybe<Scalars['String']>;
+  readonly recordId: Maybe<Scalars['String']>;
+  readonly data: Maybe<AirtableData>;
+};
+
+type AirtableConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<AirtableEdge>;
+  readonly nodes: ReadonlyArray<Airtable>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<AirtableGroupConnection>;
+};
+
+
+type AirtableConnection_distinctArgs = {
+  field: AirtableFieldsEnum;
+};
+
+
+type AirtableConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: AirtableFieldsEnum;
+};
+
+type AirtableData = {
+  readonly Name: Maybe<Scalars['String']>;
+  readonly Notes: Maybe<Scalars['String']>;
+  readonly Attachments: Maybe<ReadonlyArray<Maybe<AirtableDataAttachments>>>;
+};
+
+type AirtableDataAttachments = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly filename: Maybe<Scalars['String']>;
+  readonly size: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+  readonly thumbnails: Maybe<AirtableDataAttachmentsThumbnails>;
+};
+
+type AirtableDataAttachmentsFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly filename: Maybe<StringQueryOperatorInput>;
+  readonly size: Maybe<IntQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly thumbnails: Maybe<AirtableDataAttachmentsThumbnailsFilterInput>;
+};
+
+type AirtableDataAttachmentsFilterListInput = {
+  readonly elemMatch: Maybe<AirtableDataAttachmentsFilterInput>;
+};
+
+type AirtableDataAttachmentsThumbnails = {
+  readonly small: Maybe<AirtableDataAttachmentsThumbnailsSmall>;
+  readonly large: Maybe<AirtableDataAttachmentsThumbnailsLarge>;
+  readonly full: Maybe<AirtableDataAttachmentsThumbnailsFull>;
+};
+
+type AirtableDataAttachmentsThumbnailsFilterInput = {
+  readonly small: Maybe<AirtableDataAttachmentsThumbnailsSmallFilterInput>;
+  readonly large: Maybe<AirtableDataAttachmentsThumbnailsLargeFilterInput>;
+  readonly full: Maybe<AirtableDataAttachmentsThumbnailsFullFilterInput>;
+};
+
+type AirtableDataAttachmentsThumbnailsFull = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+};
+
+type AirtableDataAttachmentsThumbnailsFullFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+};
+
+type AirtableDataAttachmentsThumbnailsLarge = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+};
+
+type AirtableDataAttachmentsThumbnailsLargeFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+};
+
+type AirtableDataAttachmentsThumbnailsSmall = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+};
+
+type AirtableDataAttachmentsThumbnailsSmallFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+};
+
+type AirtableDataFilterInput = {
+  readonly Name: Maybe<StringQueryOperatorInput>;
+  readonly Notes: Maybe<StringQueryOperatorInput>;
+  readonly Attachments: Maybe<AirtableDataAttachmentsFilterListInput>;
+};
+
+type AirtableEdge = {
+  readonly next: Maybe<Airtable>;
+  readonly node: Airtable;
+  readonly previous: Maybe<Airtable>;
+};
+
+enum AirtableFieldsEnum {
+  id = 'id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type',
+  table = 'table',
+  recordId = 'recordId',
+  data___Name = 'data.Name',
+  data___Notes = 'data.Notes',
+  data___Attachments = 'data.Attachments',
+  data___Attachments___id = 'data.Attachments.id',
+  data___Attachments___url = 'data.Attachments.url',
+  data___Attachments___filename = 'data.Attachments.filename',
+  data___Attachments___size = 'data.Attachments.size',
+  data___Attachments___type = 'data.Attachments.type'
+}
+
+type AirtableFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly table: Maybe<StringQueryOperatorInput>;
+  readonly recordId: Maybe<StringQueryOperatorInput>;
+  readonly data: Maybe<AirtableDataFilterInput>;
+};
+
+type AirtableGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<AirtableEdge>;
+  readonly nodes: ReadonlyArray<Airtable>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type AirtableSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<AirtableFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
 
 type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
@@ -1423,6 +1667,8 @@ type Query = {
   readonly allSitePage: SitePageConnection;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly allImageSharp: ImageSharpConnection;
+  readonly airtable: Maybe<Airtable>;
+  readonly allAirtable: AirtableConnection;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly sitePlugin: Maybe<SitePlugin>;
@@ -1595,6 +1841,25 @@ type Query_imageSharpArgs = {
 type Query_allImageSharpArgs = {
   filter: Maybe<ImageSharpFilterInput>;
   sort: Maybe<ImageSharpSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_airtableArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  table: Maybe<StringQueryOperatorInput>;
+  recordId: Maybe<StringQueryOperatorInput>;
+  data: Maybe<AirtableDataFilterInput>;
+};
+
+
+type Query_allAirtableArgs = {
+  filter: Maybe<AirtableFilterInput>;
+  sort: Maybe<AirtableSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -2147,6 +2412,11 @@ enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator.resolve',
   pluginCreator___name = 'pluginCreator.name',
   pluginCreator___version = 'pluginCreator.version',
+  pluginCreator___pluginOptions___apiKey = 'pluginCreator.pluginOptions.apiKey',
+  pluginCreator___pluginOptions___concurrency = 'pluginCreator.pluginOptions.concurrency',
+  pluginCreator___pluginOptions___tables = 'pluginCreator.pluginOptions.tables',
+  pluginCreator___pluginOptions___tables___baseId = 'pluginCreator.pluginOptions.tables.baseId',
+  pluginCreator___pluginOptions___tables___tableName = 'pluginCreator.pluginOptions.tables.tableName',
   pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
   pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
   pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
@@ -2156,6 +2426,19 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___emitPluginDocuments___src___generated___gatsby_plugin_documents_graphql = 'pluginCreator.pluginOptions.emitPluginDocuments.src___generated___gatsby_plugin_documents_graphql',
   pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
   pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
+  pluginCreator___pluginOptions___short_name = 'pluginCreator.pluginOptions.short_name',
+  pluginCreator___pluginOptions___description = 'pluginCreator.pluginOptions.description',
+  pluginCreator___pluginOptions___homepage_url = 'pluginCreator.pluginOptions.homepage_url',
+  pluginCreator___pluginOptions___start_url = 'pluginCreator.pluginOptions.start_url',
+  pluginCreator___pluginOptions___background_color = 'pluginCreator.pluginOptions.background_color',
+  pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
+  pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
+  pluginCreator___pluginOptions___icon_options___purpose = 'pluginCreator.pluginOptions.icon_options.purpose',
+  pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
+  pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
+  pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
+  pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
+  pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
   pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
   pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
   pluginCreator___pluginOptions___head = 'pluginCreator.pluginOptions.head',
@@ -2174,19 +2457,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___fonts___variable = 'pluginCreator.pluginOptions.fonts.variable',
   pluginCreator___pluginOptions___fonts___weights = 'pluginCreator.pluginOptions.fonts.weights',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
-  pluginCreator___pluginOptions___short_name = 'pluginCreator.pluginOptions.short_name',
-  pluginCreator___pluginOptions___description = 'pluginCreator.pluginOptions.description',
-  pluginCreator___pluginOptions___homepage_url = 'pluginCreator.pluginOptions.homepage_url',
-  pluginCreator___pluginOptions___start_url = 'pluginCreator.pluginOptions.start_url',
-  pluginCreator___pluginOptions___background_color = 'pluginCreator.pluginOptions.background_color',
-  pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
-  pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
-  pluginCreator___pluginOptions___icon_options___purpose = 'pluginCreator.pluginOptions.icon_options.purpose',
-  pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
-  pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
-  pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
-  pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
-  pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
   pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator.pluginOptions.postCssPlugins',
   pluginCreator___pluginOptions___postCssPlugins___purge = 'pluginCreator.pluginOptions.postCssPlugins.purge',
   pluginCreator___pluginOptions___indentedSyntax = 'pluginCreator.pluginOptions.indentedSyntax',
@@ -2384,6 +2654,11 @@ enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___apiKey = 'pluginOptions.apiKey',
+  pluginOptions___concurrency = 'pluginOptions.concurrency',
+  pluginOptions___tables = 'pluginOptions.tables',
+  pluginOptions___tables___baseId = 'pluginOptions.tables.baseId',
+  pluginOptions___tables___tableName = 'pluginOptions.tables.tableName',
   pluginOptions___isTSX = 'pluginOptions.isTSX',
   pluginOptions___jsxPragma = 'pluginOptions.jsxPragma',
   pluginOptions___allExtensions = 'pluginOptions.allExtensions',
@@ -2393,6 +2668,19 @@ enum SitePluginFieldsEnum {
   pluginOptions___emitPluginDocuments___src___generated___gatsby_plugin_documents_graphql = 'pluginOptions.emitPluginDocuments.src___generated___gatsby_plugin_documents_graphql',
   pluginOptions___path = 'pluginOptions.path',
   pluginOptions___name = 'pluginOptions.name',
+  pluginOptions___short_name = 'pluginOptions.short_name',
+  pluginOptions___description = 'pluginOptions.description',
+  pluginOptions___homepage_url = 'pluginOptions.homepage_url',
+  pluginOptions___start_url = 'pluginOptions.start_url',
+  pluginOptions___background_color = 'pluginOptions.background_color',
+  pluginOptions___theme_color = 'pluginOptions.theme_color',
+  pluginOptions___icon = 'pluginOptions.icon',
+  pluginOptions___icon_options___purpose = 'pluginOptions.icon_options.purpose',
+  pluginOptions___cache_busting_mode = 'pluginOptions.cache_busting_mode',
+  pluginOptions___include_favicon = 'pluginOptions.include_favicon',
+  pluginOptions___legacy = 'pluginOptions.legacy',
+  pluginOptions___theme_color_in_head = 'pluginOptions.theme_color_in_head',
+  pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
   pluginOptions___anonymize = 'pluginOptions.anonymize',
   pluginOptions___respectDNT = 'pluginOptions.respectDNT',
   pluginOptions___head = 'pluginOptions.head',
@@ -2411,19 +2699,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___fonts___variable = 'pluginOptions.fonts.variable',
   pluginOptions___fonts___weights = 'pluginOptions.fonts.weights',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
-  pluginOptions___short_name = 'pluginOptions.short_name',
-  pluginOptions___description = 'pluginOptions.description',
-  pluginOptions___homepage_url = 'pluginOptions.homepage_url',
-  pluginOptions___start_url = 'pluginOptions.start_url',
-  pluginOptions___background_color = 'pluginOptions.background_color',
-  pluginOptions___theme_color = 'pluginOptions.theme_color',
-  pluginOptions___icon = 'pluginOptions.icon',
-  pluginOptions___icon_options___purpose = 'pluginOptions.icon_options.purpose',
-  pluginOptions___cache_busting_mode = 'pluginOptions.cache_busting_mode',
-  pluginOptions___include_favicon = 'pluginOptions.include_favicon',
-  pluginOptions___legacy = 'pluginOptions.legacy',
-  pluginOptions___theme_color_in_head = 'pluginOptions.theme_color_in_head',
-  pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
   pluginOptions___postCssPlugins = 'pluginOptions.postCssPlugins',
   pluginOptions___postCssPlugins___purge = 'pluginOptions.postCssPlugins.purge',
   pluginOptions___postCssPlugins___variants___borderWidth = 'pluginOptions.postCssPlugins.variants.borderWidth',
@@ -2552,6 +2827,9 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 type SitePluginPluginOptions = {
+  readonly apiKey: Maybe<Scalars['String']>;
+  readonly concurrency: Maybe<Scalars['Int']>;
+  readonly tables: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsTables>>>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
   readonly jsxPragma: Maybe<Scalars['String']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
@@ -2560,6 +2838,19 @@ type SitePluginPluginOptions = {
   readonly emitPluginDocuments: Maybe<SitePluginPluginOptionsEmitPluginDocuments>;
   readonly path: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
+  readonly short_name: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly homepage_url: Maybe<Scalars['String']>;
+  readonly start_url: Maybe<Scalars['String']>;
+  readonly background_color: Maybe<Scalars['String']>;
+  readonly theme_color: Maybe<Scalars['String']>;
+  readonly icon: Maybe<Scalars['String']>;
+  readonly icon_options: Maybe<SitePluginPluginOptionsIcon_options>;
+  readonly cache_busting_mode: Maybe<Scalars['String']>;
+  readonly include_favicon: Maybe<Scalars['Boolean']>;
+  readonly legacy: Maybe<Scalars['Boolean']>;
+  readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
+  readonly cacheDigest: Maybe<Scalars['String']>;
   readonly anonymize: Maybe<Scalars['Boolean']>;
   readonly respectDNT: Maybe<Scalars['Boolean']>;
   readonly head: Maybe<Scalars['Boolean']>;
@@ -2575,19 +2866,6 @@ type SitePluginPluginOptions = {
   readonly createLinkInHead: Maybe<Scalars['Boolean']>;
   readonly fonts: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsFonts>>>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
-  readonly short_name: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly homepage_url: Maybe<Scalars['String']>;
-  readonly start_url: Maybe<Scalars['String']>;
-  readonly background_color: Maybe<Scalars['String']>;
-  readonly theme_color: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
-  readonly icon_options: Maybe<SitePluginPluginOptionsIcon_options>;
-  readonly cache_busting_mode: Maybe<Scalars['String']>;
-  readonly include_favicon: Maybe<Scalars['Boolean']>;
-  readonly legacy: Maybe<Scalars['Boolean']>;
-  readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
-  readonly cacheDigest: Maybe<Scalars['String']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly indentedSyntax: Maybe<Scalars['Boolean']>;
   readonly indentType: Maybe<Scalars['String']>;
@@ -2619,6 +2897,9 @@ type SitePluginPluginOptionsEmitSchemaFilterInput = {
 };
 
 type SitePluginPluginOptionsFilterInput = {
+  readonly apiKey: Maybe<StringQueryOperatorInput>;
+  readonly concurrency: Maybe<IntQueryOperatorInput>;
+  readonly tables: Maybe<SitePluginPluginOptionsTablesFilterListInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
   readonly jsxPragma: Maybe<StringQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
@@ -2627,6 +2908,19 @@ type SitePluginPluginOptionsFilterInput = {
   readonly emitPluginDocuments: Maybe<SitePluginPluginOptionsEmitPluginDocumentsFilterInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
+  readonly short_name: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
+  readonly homepage_url: Maybe<StringQueryOperatorInput>;
+  readonly start_url: Maybe<StringQueryOperatorInput>;
+  readonly background_color: Maybe<StringQueryOperatorInput>;
+  readonly theme_color: Maybe<StringQueryOperatorInput>;
+  readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly icon_options: Maybe<SitePluginPluginOptionsIcon_optionsFilterInput>;
+  readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
+  readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
+  readonly legacy: Maybe<BooleanQueryOperatorInput>;
+  readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
+  readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly anonymize: Maybe<BooleanQueryOperatorInput>;
   readonly respectDNT: Maybe<BooleanQueryOperatorInput>;
   readonly head: Maybe<BooleanQueryOperatorInput>;
@@ -2642,19 +2936,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>;
   readonly fonts: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
-  readonly short_name: Maybe<StringQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
-  readonly homepage_url: Maybe<StringQueryOperatorInput>;
-  readonly start_url: Maybe<StringQueryOperatorInput>;
-  readonly background_color: Maybe<StringQueryOperatorInput>;
-  readonly theme_color: Maybe<StringQueryOperatorInput>;
-  readonly icon: Maybe<StringQueryOperatorInput>;
-  readonly icon_options: Maybe<SitePluginPluginOptionsIcon_optionsFilterInput>;
-  readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
-  readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
-  readonly legacy: Maybe<BooleanQueryOperatorInput>;
-  readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
-  readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly indentedSyntax: Maybe<BooleanQueryOperatorInput>;
   readonly indentType: Maybe<StringQueryOperatorInput>;
@@ -3167,10 +3448,12 @@ type SitePluginPluginOptionsPostCssPluginsThemeFilterInput = {
 
 type SitePluginPluginOptionsPostCssPluginsThemeFontFamily = {
   readonly sans: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly labeltape: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
 };
 
 type SitePluginPluginOptionsPostCssPluginsThemeFontFamilyFilterInput = {
   readonly sans: Maybe<StringQueryOperatorInput>;
+  readonly labeltape: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsPostCssPluginsVariants = {
@@ -3181,6 +3464,20 @@ type SitePluginPluginOptionsPostCssPluginsVariants = {
 type SitePluginPluginOptionsPostCssPluginsVariantsFilterInput = {
   readonly borderWidth: Maybe<StringQueryOperatorInput>;
   readonly margin: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsTables = {
+  readonly baseId: Maybe<Scalars['String']>;
+  readonly tableName: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsTablesFilterInput = {
+  readonly baseId: Maybe<StringQueryOperatorInput>;
+  readonly tableName: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsTablesFilterListInput = {
+  readonly elemMatch: Maybe<SitePluginPluginOptionsTablesFilterInput>;
 };
 
 type SitePluginSortInput = {
@@ -3290,9 +3587,14 @@ type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type AboutQueryQuery = { readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }> };
 
+type AboutPageTwoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageTwoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }> };
+
 type HomepageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomepageQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }> };
+type HomepageQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly airtable: Maybe<{ readonly data: Maybe<{ readonly Attachments: Maybe<ReadonlyArray<Maybe<Pick<AirtableDataAttachments, 'url'>>>> }> }> };
 
 }

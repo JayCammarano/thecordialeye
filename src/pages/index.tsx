@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby';
-import React, { useState } from 'react';
-import Img from 'gatsby-image';
+import React from 'react';
+
 import { Layout } from '../components/Layout';
+import { CarouselContainer } from '../components/Carousel';
 
 interface IHomepageProps {
   location: Location;
@@ -9,10 +10,13 @@ interface IHomepageProps {
 }
 
 const HomePage: React.FC<IHomepageProps> = ({ location, data }) => {
-  const [visibleModal, setvisibleModal] = useState<boolean>(false);
   return (
     <Layout location={location}>
-      <section className="text-gray-700 body-font">Lesbian Punk Design</section>
+      <section className="text-gray-700 body-font">
+        <div className="m-6 w-5/12">
+          <CarouselContainer data={data} />
+        </div>
+      </section>
     </Layout>
   );
 };
@@ -34,6 +38,16 @@ export const query = graphql`
       childImageSharp {
         fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    airtable(
+      table: { eq: "Images" }
+      data: { Name: { eq: "index-carousel" } }
+    ) {
+      data {
+        Attachments {
+          url
         }
       }
     }

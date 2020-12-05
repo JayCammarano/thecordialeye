@@ -7,6 +7,19 @@ module.exports = {
   pathPrefix,
   plugins: [
     {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `keyJuTKPfaARzSLFe`, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [
+          {
+            baseId: `appw4gtd2ceeniRfm`,
+            tableName: `Images`,
+          },
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-plugin-typescript',
     },
     {

@@ -38,29 +38,31 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
               </div>
               <div className="flex flex-col items-center justify-center text-center">
                 <h2 className="mt-4 text-lg font-medium text-gray-900 title-font">
-                  Massachusetts Compassionate Drug Policy Coalition
+                  The Cordial Eye
                 </h2>
-                <div className="w-12 h-1 mt-2 mb-4 rounded bg-primary-500" />
+                <div className="w-12 h-1 mt-2 mb-4 rounded bg-dark_pink-500" />
                 <p className="text-base text-gray-600">
-                  Working to bring drug decriminalization to Massachusetts
+                  Creating space for thoughtful, provocative, multidisciplinary
+                  contemporary art
                 </p>
               </div>
             </div>
             <div className="pt-4 mt-4 text-center border-t border-gray-300 sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
               <p className="mb-0 text-lg leading-relaxed">
-                Rainbow cyan fuchsia, silver navy blue plum dark aqua. Purple
-                white orange swatch, olive gray blue, neon crimson silver
-                charcoal hot pink grey mint saturation. Plum hue purple coral,
-                yellow rainbow pastel, black grey teal saturation orange lime
-                light fuchsia. Rainbow teal, dark hue bright aquamarine. Light
-                teal persimmon, magenta rainbow, navy blue olive red saturation
-                fuchsia. Orange olive red, magenta wheat, purple khaki
-                aquamarine teal persimmon hot pink charcoal.
+                The Cordial Eye Gallery and Artist Space is an alternative space
+                that utilizes the arts as a meeting point for community
+                building. Built around models of mutual aid and social justice,
+                The Cordial Eye Gallery and Artist Space provides classes and
+                workshops, social clubs, and support groups within the gallery
+                setting and online.
               </p>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <div>Meet the Team</div>
     </section>
   </Layout>
 );
@@ -68,7 +70,7 @@ const AboutPage: React.FC<IAboutPageProps> = ({ location, data }) => (
 export const query = graphql`
   query AboutQuery {
     headerImage: file(
-      relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.jpeg" }
+      relativePath: { eq: "placeholder-images/unsplash-seanwsinclair.png" }
     ) {
       childImageSharp {
         fluid(quality: 70) {
