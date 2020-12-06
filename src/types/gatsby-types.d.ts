@@ -3595,4 +3595,27 @@ type HomepageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type HomepageQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly airtable: Maybe<{ readonly data: Maybe<{ readonly Attachments: Maybe<ReadonlyArray<Maybe<Pick<AirtableDataAttachments, 'url'>>>> }> }> };
 
+type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+
+type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description'>
+      & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
+    )> }> };
+
+type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
+
+type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
+
 }
