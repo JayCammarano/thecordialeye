@@ -17,7 +17,7 @@ export const Layout: React.FC<ILayoutProps> = ({
     <link rel="stylesheet" href="carousel.css" />
     <SEO pathName={location.pathname} title={title} />
     <Nav />
-    <div className="flex-grow site-container">{children}</div>
+    <div className="bg-gray-200 flex-grow site-container">{children}</div>
     <Footer />
   </>
 );

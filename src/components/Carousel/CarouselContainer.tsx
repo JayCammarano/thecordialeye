@@ -26,7 +26,7 @@ const CarouselContainer: React.FC<CarouselProps> = ({
   // };
 
   return (
-    <div className="text-center">
+    <div className="w-8/12 text-center">
       <Carousel autoPlay={false}>{CarouselContent}</Carousel>
       <br />
     </div>
