@@ -2268,17 +2268,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___mergeSecurityHeaders
   pluginCreator___pluginOptions___mergeLinkHeaders
   pluginCreator___pluginOptions___mergeCachingHeaders
-  pluginCreator___pluginOptions___base64Width
-  pluginCreator___pluginOptions___stripMetadata
-  pluginCreator___pluginOptions___defaultQuality
-  pluginCreator___pluginOptions___failOnError
-  pluginCreator___pluginOptions___output
-  pluginCreator___pluginOptions___createLinkInHead
-  pluginCreator___pluginOptions___fonts
-  pluginCreator___pluginOptions___fonts___family
-  pluginCreator___pluginOptions___fonts___variable
-  pluginCreator___pluginOptions___fonts___weights
-  pluginCreator___pluginOptions___pathCheck
   pluginCreator___pluginOptions___postCssPlugins
   pluginCreator___pluginOptions___postCssPlugins___purge
   pluginCreator___pluginOptions___indentedSyntax
@@ -2290,6 +2279,17 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___sourceComments
   pluginCreator___pluginOptions___sourceMapContents
   pluginCreator___pluginOptions___sourceMapEmbed
+  pluginCreator___pluginOptions___base64Width
+  pluginCreator___pluginOptions___stripMetadata
+  pluginCreator___pluginOptions___defaultQuality
+  pluginCreator___pluginOptions___failOnError
+  pluginCreator___pluginOptions___output
+  pluginCreator___pluginOptions___createLinkInHead
+  pluginCreator___pluginOptions___fonts
+  pluginCreator___pluginOptions___fonts___family
+  pluginCreator___pluginOptions___fonts___variable
+  pluginCreator___pluginOptions___fonts___weights
+  pluginCreator___pluginOptions___pathCheck
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
   pluginCreator___ssrAPIs
@@ -2498,17 +2498,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___mergeSecurityHeaders
   pluginOptions___mergeLinkHeaders
   pluginOptions___mergeCachingHeaders
-  pluginOptions___base64Width
-  pluginOptions___stripMetadata
-  pluginOptions___defaultQuality
-  pluginOptions___failOnError
-  pluginOptions___output
-  pluginOptions___createLinkInHead
-  pluginOptions___fonts
-  pluginOptions___fonts___family
-  pluginOptions___fonts___variable
-  pluginOptions___fonts___weights
-  pluginOptions___pathCheck
   pluginOptions___postCssPlugins
   pluginOptions___postCssPlugins___purge
   pluginOptions___postCssPlugins___variants___borderWidth
@@ -2524,6 +2513,17 @@ enum SitePluginFieldsEnum {
   pluginOptions___sourceComments
   pluginOptions___sourceMapContents
   pluginOptions___sourceMapEmbed
+  pluginOptions___base64Width
+  pluginOptions___stripMetadata
+  pluginOptions___defaultQuality
+  pluginOptions___failOnError
+  pluginOptions___output
+  pluginOptions___createLinkInHead
+  pluginOptions___fonts
+  pluginOptions___fonts___family
+  pluginOptions___fonts___variable
+  pluginOptions___fonts___weights
+  pluginOptions___pathCheck
   nodeAPIs
   browserAPIs
   ssrAPIs
@@ -2668,14 +2668,6 @@ type SitePluginPluginOptions {
   mergeSecurityHeaders: Boolean
   mergeLinkHeaders: Boolean
   mergeCachingHeaders: Boolean
-  base64Width: Int
-  stripMetadata: Boolean
-  defaultQuality: Int
-  failOnError: Boolean
-  output: String
-  createLinkInHead: Boolean
-  fonts: [SitePluginPluginOptionsFonts]
-  pathCheck: Boolean
   postCssPlugins: [SitePluginPluginOptionsPostCssPlugins]
   indentedSyntax: Boolean
   indentType: String
@@ -2686,6 +2678,14 @@ type SitePluginPluginOptions {
   sourceComments: Boolean
   sourceMapContents: Boolean
   sourceMapEmbed: Boolean
+  base64Width: Int
+  stripMetadata: Boolean
+  defaultQuality: Int
+  failOnError: Boolean
+  output: String
+  createLinkInHead: Boolean
+  fonts: [SitePluginPluginOptionsFonts]
+  pathCheck: Boolean
 }
 
 type SitePluginPluginOptionsEmitPluginDocuments {
@@ -2738,14 +2738,6 @@ input SitePluginPluginOptionsFilterInput {
   mergeSecurityHeaders: BooleanQueryOperatorInput
   mergeLinkHeaders: BooleanQueryOperatorInput
   mergeCachingHeaders: BooleanQueryOperatorInput
-  base64Width: IntQueryOperatorInput
-  stripMetadata: BooleanQueryOperatorInput
-  defaultQuality: IntQueryOperatorInput
-  failOnError: BooleanQueryOperatorInput
-  output: StringQueryOperatorInput
-  createLinkInHead: BooleanQueryOperatorInput
-  fonts: SitePluginPluginOptionsFontsFilterListInput
-  pathCheck: BooleanQueryOperatorInput
   postCssPlugins: SitePluginPluginOptionsPostCssPluginsFilterListInput
   indentedSyntax: BooleanQueryOperatorInput
   indentType: StringQueryOperatorInput
@@ -2756,6 +2748,14 @@ input SitePluginPluginOptionsFilterInput {
   sourceComments: BooleanQueryOperatorInput
   sourceMapContents: BooleanQueryOperatorInput
   sourceMapEmbed: BooleanQueryOperatorInput
+  base64Width: IntQueryOperatorInput
+  stripMetadata: BooleanQueryOperatorInput
+  defaultQuality: IntQueryOperatorInput
+  failOnError: BooleanQueryOperatorInput
+  output: StringQueryOperatorInput
+  createLinkInHead: BooleanQueryOperatorInput
+  fonts: SitePluginPluginOptionsFontsFilterListInput
+  pathCheck: BooleanQueryOperatorInput
 }
 
 type SitePluginPluginOptionsFonts {

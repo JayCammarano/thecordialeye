@@ -2,6 +2,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { siteMetadata, manifestOptions, googleAnalytics, pathPrefix, googleFonts } = require('./config/SiteConfig');
 
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+  
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
+
 module.exports = {
   siteMetadata,
   pathPrefix,
@@ -9,11 +17,11 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: `keyJuTKPfaARzSLFe`, // may instead specify via env, see below
+        apiKey: process.env.AIRTABLEAPI, // may instead specify via env, see below
         concurrency: 5, // default, see using markdown and attachments for more information
         tables: [
           {
-            baseId: `appw4gtd2ceeniRfm`,
+            baseId: process.env.AIRTABLEBASEID,
             tableName: `Images`,
           },
         ]
