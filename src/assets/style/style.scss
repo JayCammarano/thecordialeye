@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'tailwindvars';
+
+@layer base {
+  body,
+  html {
+    @apply h-full overflow-x-hidden;
+  }
+
+  body {
+    @apply flex flex-col;
+  }
+
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    display: contents;
+  }
+  #header {
+    background: linear-gradient(#000000 40%, #f9ace6 35%);
+  }
+  .logo {
+    width: 70%;
+    height: auto;
+  }
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 33px solid transparent;
+    border-bottom: 36px solid transparent;
+    border-left: 33px solid rgb(229, 111, 199);
+    position: relative;
+  }
+}
